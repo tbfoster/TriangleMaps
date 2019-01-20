@@ -388,6 +388,7 @@ public class Grid
     //********************************************************************************
     func showPhoto()
     {
+        var offsetZ: Float = 0
         var vHeight: CGFloat = 30
         var vWidth: CGFloat = 30
         var startX: CGFloat = 35
@@ -408,10 +409,8 @@ public class Grid
         }
         else
         {
-            vWidth = 40
-            vHeight = 50
-            startX = 0
-            startY = 0
+            startX = 80
+            startY = 280
             posX = startX
             posZ = startY
         }
@@ -423,37 +422,47 @@ public class Grid
             posX = startX
             for cols in 0...map.cols
             {
-                var pZ = posZ
-                if(oddRow == true) { pZ += (vHeight / 2) } //11 }
-                let sNode = SKSpriteNode() //imageNamed: "art.scnassets/Images/MenuButtons/BtnBuyAll.png")
-                //sNode.name = vPanel.panelName
-                sNode.size = CGSize(width: vWidth, height: vHeight)
-                sNode.position.x = posX
-                sNode.position.y = pZ
-                //print("X: \(posX) Y: \(pZ)")
-                data.spriteNodes.append(sNode)
+                offsetZ = 0.0
+                let vPanel = getPanelAt(vRow: rows, vCol: cols)
+                if(vPanel.up == false) { offsetZ = -3 }
+                let bezierPath = UIBezierPath()
+                bezierPath.move(to:    CGPoint(x: -20.0, y: -15))
+                bezierPath.addLine(to: CGPoint(x:  20.0, y: -15))
+                bezierPath.addLine(to: CGPoint(x:   0.0, y:  15))
+                bezierPath.addLine(to: CGPoint(x: -20.0, y: -15))
+                bezierPath.close()
                 
-                //sNode.color = UIColor.lightGray
-                switch(map.gamePattern[rows][cols])
+                let sNode = SKShapeNode(path: bezierPath.cgPath)
+                //sNode.name = vPanel.panelName
+                //sNode.size = CGSize(width: vWidth, height: vHeight)
+                sNode.position.x = posX
+                sNode.position.y = posZ + CGFloat(offsetZ)
+                
+                if(vPanel.up == true)
                 {
-                case 0: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileNormalDisplay.png"); break
-                case 2: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileEntryDisplay.png"); break
-                case 3: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileExitDisplay.png"); break
-                    
-                    //                case 7: sNode.color = UIColor.red; break
-                    //                case 8: sNode.color = UIColor.green; break
-                //                case 9: sNode.color = UIColor.orange; break
-                default:
-                    sNode.color = UIColor.clear
-                    break
+                    let vRotate = SKAction.rotate(toAngle: CGFloat(GLKMathDegreesToRadians(180)), duration: 0)
+                    sNode.run(vRotate)
                 }
+                //print("X: \(posX) Y: \(pZ)")
+                if(map.gamePattern[rows][cols] == 0 || map.gamePattern[rows][cols] == 2 || map.gamePattern[rows][cols] == 3)
+                {
+                    data.spriteNodes.append(sNode)
+                }
+                //sNode.color = UIColor.lightGray
+//                switch(map.gamePattern[rows][cols])
+//                {
+//                case 0: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileNormalDisplay.png"); break
+//                case 2: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileEntryDisplay.png"); break
+//                case 3: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileExitDisplay.png"); break
+//                default: sNode.color = UIColor.clear; break
+//                }
                 
                 posX += vWidth + 2
                 oddRow = !oddRow
                 panelCount += 1
             }
             posX = startX
-            posZ += vHeight + 2
+            posZ += 40
         }
     }
     //********************************************************************************
@@ -469,7 +478,7 @@ public class Grid
                 let vY = util.fmt(vF: vPanels.position.y)
                 let vZ = util.fmt(vF: vPanels.position.z)
                 
-                vString = "MAP_DETAIL(name: \"\(vPanels.panelName)\", type: .\(vPanels.type), pos: SCNVector3(\(vX), \(vY), \(vZ)), conn: ["
+                vString = "MAP_DETAIL(name: \"\(vPanels.panelName)\", up: \(vPanels.up), type: .\(vPanels.type), pos: SCNVector3(\(vX), \(vY), \(vZ)), conn: ["
                 
                 for vAdjacent in vPanels.adjacentPanels
                 {

@@ -112,11 +112,6 @@ class GameNodes
     func getPanelNode(vPanelType: panelTypes, vUp: Bool) -> SCNNode
     {
         let bezierPath = UIBezierPath()
-//        bezierPath.move(to:    CGPoint(x: -1.5, y: -0.9))
-//        bezierPath.addLine(to: CGPoint(x:  1.5, y: -0.9))
-//        bezierPath.addLine(to: CGPoint(x:  0.0, y:  0.9))
-//        bezierPath.addLine(to: CGPoint(x: -1.5, y: -0.9))
-        
         bezierPath.move(to:    CGPoint(x: -2.0, y: -1.5))
         bezierPath.addLine(to: CGPoint(x:  2.0, y: -1.5))
         bezierPath.addLine(to: CGPoint(x:  0.0, y:  1.5))
@@ -128,7 +123,7 @@ class GameNodes
         //let plane = SCNCylinder(radius: 1.0, height: 0.5)
         
         plane.materials = []
-        plane.materials = setPanelTextures(vPanelType: vPanelType)
+        plane.materials = setTriPanelTextures(vPanelType: vPanelType)
         plane.firstMaterial?.isDoubleSided = false
         
         let vNode = SCNNode(geometry: plane)
@@ -141,6 +136,21 @@ class GameNodes
         }
         vNode.scale = SCNVector3(0.7, 0.7, 0.7)
         return vNode
+    }
+    //********************************************************************
+    func setTriPanelTextures(vPanelType: panelTypes) -> [SCNMaterial]
+    {
+        let topMaterial = SCNMaterial()
+        switch vPanelType
+        {
+        case .normal:   topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileNormal.png"; break
+        case .entry:    topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileEntryQuad.png"; break
+        case .exit:     topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileExit.png"; break
+        default: break
+        }
+        topMaterial.locksAmbientWithDiffuse = true
+        
+        return [topMaterial]
     }
     //********************************************************************
     func setPanelTextures(vPanelType: panelTypes) -> [SCNMaterial]
