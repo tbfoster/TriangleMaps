@@ -284,22 +284,22 @@ public class Grid
             connectionPanels.append(vAdjacent)
         }
         //print("Adjacent: \(vPanel.panelName) Connections: \(connectionPanels)")
-        listConnections(vName: vPanel.panelName)
+        //listConnections(vName: vPanel.panelName)
     }
     //********************************************************************************
-    func listConnections(vName: String)
-    {
-        var connectionPanels: [String] = []
-        let vNode = getGraphNodeByName(vName: vName)
-        let vPanel = getPanel(vPanelName: vName)
-        for vConns in vNode.connectedNodes
-        {
-            let vPrintNode = vConns as! GKPanelNode
-            connectionPanels.append(vPrintNode.name)
-        }
-        
-        //print("OddRow: \(vPanel.oddRow) GKNode:   \(vName) Connections: \(connectionPanels)")
-    }
+//    func listConnections(vName: String)
+//    {
+//        var connectionPanels: [String] = []
+//        let vNode = getGraphNodeByName(vName: vName)
+//        let vPanel = getPanel(vPanelName: vName)
+//        for vConns in vNode.connectedNodes
+//        {
+//            let vPrintNode = vConns as! GKPanelNode
+//            connectionPanels.append(vPrintNode.name)
+//        }
+//
+//        //print("OddRow: \(vPanel.oddRow) GKNode:   \(vName) Connections: \(connectionPanels)")
+//    }
     //********************************************************************************
     func removePanelNodes()
     {
