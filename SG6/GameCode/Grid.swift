@@ -389,7 +389,6 @@ public class Grid
     func showPhoto()
     {
         var offsetZ: Float = 0
-        var vHeight: CGFloat = 30
         var vWidth: CGFloat = 30
         var startX: CGFloat = 35
         var startY: CGFloat = 100
@@ -401,7 +400,6 @@ public class Grid
         if(data.isLandscape == true)
         {
             vWidth = 45
-            vHeight = 40
             startX = 90
             startY = 12
             posX = startX
@@ -433,29 +431,59 @@ public class Grid
                 bezierPath.close()
                 
                 let sNode = SKShapeNode(path: bezierPath.cgPath)
-                //sNode.name = vPanel.panelName
-                //sNode.size = CGSize(width: vWidth, height: vHeight)
                 sNode.position.x = posX
                 sNode.position.y = posZ + CGFloat(offsetZ)
+                
+                let textureNormal = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileNormal.png")
+                sNode.strokeColor = UIColor.darkGray
                 
                 if(vPanel.up == true)
                 {
                     let vRotate = SKAction.rotate(toAngle: CGFloat(GLKMathDegreesToRadians(180)), duration: 0)
                     sNode.run(vRotate)
                 }
+                switch vPanel.type
+                {
+                case .normal:
+                    sNode.fillColor = UIColor(displayP3Red: 66, green: 77, blue: 77, alpha: 1)
+                    sNode.fillTexture = textureNormal
+                    break
+                case .entry:
+                    if(vPanel.up == true)
+                    {
+                        let textureEntry = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileEntryTriUp.png")
+                        sNode.fillTexture = textureEntry
+                    }
+                    else
+                    {
+                        let textureEntry = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileEntryTriDown.png")
+                        sNode.fillTexture = textureEntry
+                    }
+                    sNode.fillColor = UIColor(displayP3Red: 66, green: 77, blue: 77, alpha: 1)
+                    
+                    break
+                case .exit:
+                    if(vPanel.up == true)
+                    {
+                        let textureExit = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileExitTriDown.png")
+                        sNode.fillTexture = textureExit
+                    }
+                    else
+                    {
+                        let textureExit = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileExitTriUp.png")
+                        sNode.fillTexture = textureExit
+                    }
+                    sNode.fillColor = UIColor(displayP3Red: 66, green: 77, blue: 77, alpha: 1)
+                    break
+                default: break
+                }
+                
+                
                 //print("X: \(posX) Y: \(pZ)")
                 if(map.gamePattern[rows][cols] == 0 || map.gamePattern[rows][cols] == 2 || map.gamePattern[rows][cols] == 3)
                 {
                     data.spriteNodes.append(sNode)
                 }
-                //sNode.color = UIColor.lightGray
-//                switch(map.gamePattern[rows][cols])
-//                {
-//                case 0: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileNormalDisplay.png"); break
-//                case 2: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileEntryDisplay.png"); break
-//                case 3: sNode.texture = SKTexture(imageNamed: "art.scnassets/Images/Panels/TileExitDisplay.png"); break
-//                default: sNode.color = UIColor.clear; break
-//                }
                 
                 posX += vWidth + 2
                 oddRow = !oddRow

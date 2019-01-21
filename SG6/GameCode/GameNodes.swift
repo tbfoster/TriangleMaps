@@ -144,7 +144,7 @@ class GameNodes
         switch vPanelType
         {
         case .normal:   topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileNormal.png"; break
-        case .entry:    topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileEntryQuad.png"; break
+        case .entry:    topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileEntry.png"; break
         case .exit:     topMaterial.diffuse.contents = "art.scnassets/Images/Panels/TileExit.png"; break
         default: break
         }

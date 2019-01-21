@@ -80,7 +80,7 @@ public class Panel
         type = vPanelType
         // We don't need a node or lanes if we aren't displaying them
         
-        TEMPshowText()
+        //TEMPshowText()
         node.removeFromParentNode()
         node = gNodes.getPanelNode(vPanelType: type, vUp: up)
         node.position = position

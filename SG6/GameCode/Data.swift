@@ -122,42 +122,7 @@ var mapData: [[MAP_DATA]] =
          MAP_DATA(map: 10, start: 1000, bonus: 50, escapes: 10, waves: 92, mapName: "Map9", image: "Map9.png"),
          MAP_DATA(map: 10, start: 1000, bonus: 50, escapes: 5,  waves: 92, mapName: "Map9", image: "Map9.png")],
         
-        [MAP_DATA(map: 11, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map10", image: "Map10.png"),
-         MAP_DATA(map: 11, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map10", image: "Map10.png"),
-         MAP_DATA(map: 11, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map10", image: "Map10.png")],
         
-        // TODO not tested
-        [MAP_DATA(map: 12, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map11", image: "Map11.png"),
-         MAP_DATA(map: 12, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map11", image: "Map11.png"),
-         MAP_DATA(map: 12, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map11", image: "Map11.png")],
-        
-        [MAP_DATA(map: 13, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map12", image: "Map12.png"),
-         MAP_DATA(map: 13, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map12", image: "Map12.png"),
-         MAP_DATA(map: 13, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map12", image: "Map12.png")],
-        
-        [MAP_DATA(map: 14, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map13", image: "Map13.png"),
-         MAP_DATA(map: 14, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map13", image: "Map13.png"),
-         MAP_DATA(map: 14, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map13", image: "Map13.png")],
-        
-        [MAP_DATA(map: 15, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map14", image: "Map14.png"),
-         MAP_DATA(map: 15, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map14", image: "Map14.png"),
-         MAP_DATA(map: 15, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map14", image: "Map14.png")],
-        
-        [MAP_DATA(map: 16, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map15", image: "Map15.png"),
-         MAP_DATA(map: 16, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map15", image: "Map15.png"),
-         MAP_DATA(map: 16, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map15", image: "Map15.png")],
-        
-        [MAP_DATA(map: 17, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map16", image: "Map16.png"),
-         MAP_DATA(map: 17, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map16", image: "Map16.png"),
-         MAP_DATA(map: 17, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map16", image: "Map16.png")],
-        
-        [MAP_DATA(map: 18, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map17", image: "Map17.png"),
-         MAP_DATA(map: 18, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map17", image: "Map17.png"),
-         MAP_DATA(map: 18, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map17", image: "Map17.png")],
-        
-        [MAP_DATA(map: 19, start: 1000, bonus: 75, escapes: 15, waves: 85, mapName: "Map18", image: "Map18.png"),
-         MAP_DATA(map: 19, start: 1000, bonus: 75, escapes: 10, waves: 85, mapName: "Map18", image: "Map18.png"),
-         MAP_DATA(map: 19, start: 1000, bonus: 75, escapes: 5,  waves: 85, mapName: "Map18", image: "Map18.png")],
 ]
 
 //********************************************************************
